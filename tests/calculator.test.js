@@ -54,4 +54,30 @@ describe('Calculator', () => {
       expect(() => calc.divide(10, '2')).toThrow('Arguments must be numbers');
     });
   });
+
+  describe('power', () => {
+    it('should calculate the power of a base to an exponent', () => {
+      expect(calc.power(2, 3)).toBe(8);
+      expect(calc.power(5, 0)).toBe(1);
+    });
+
+    it('should throw an error if arguments are not numbers', () => {
+      expect(() => calc.power(2, '3')).toThrow('Arguments must be numbers');
+    });
+  });
+
+  describe('squareRoot', () => {
+    it('should calculate the square root of a number', () => {
+      expect(calc.squareRoot(9)).toBe(3);
+      expect(calc.squareRoot(16)).toBe(4);
+    });
+
+    it('should throw an error if the argument is negative', () => {
+      expect(() => calc.squareRoot(-9)).toThrow('Cannot calculate square root of a negative number');
+    });
+
+    it('should throw an error if the argument is not a number', () => {
+      expect(() => calc.squareRoot('9')).toThrow('Argument must be a number');
+    });
+  });
 });
